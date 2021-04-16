@@ -36,6 +36,23 @@ export class Todo extends Entity {
   }
 }
 
+@model({
+  settings: {
+    foreignKeys: {
+      fk_todoListImage_todoListId: {
+        name: 'fk_todoListImage_todoListId',
+        entity: 'TodoList',
+        entityKey: 'id',
+        foreignKey: 'todoListId',
+      },
+    },
+  },
+})
+export class TodoListImage extends Entity {
+  //etc.
+}
+
+
 export interface TodoRelations {
   todoList?: TodoListWithRelations;
   // describe navigational properties here
